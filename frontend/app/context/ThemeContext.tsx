@@ -1,0 +1,67 @@
+'use client';
+
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+type Theme = 'light' | 'dark';
+
+interface ThemeContextType {
+    theme: Theme;
+    toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType>({
+    theme: 'dark',
+    toggleTheme: () => {},
+});
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+    const [theme, setTheme] = useState<Theme>('dark');
+
+    const applyTheme = (t: Theme) => {
+        const root = document.documentElement;
+        root.dataset.theme = t;
+        if (t === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+    };
+
+    useEffect(() => {
+    const stored = localStorage.getItem('botchain-theme') || localStorage.getItem('stellarproof-theme') || localStorage.getItem('theme');
+    
+    const timer = setTimeout(() => {
+        if (stored === 'light') {
+        setTheme('light');
+        } else {
+        setTheme('dark');
+        }
+    }, 0);
+
+    return () => clearTimeout(timer);
+    }, []);
+
+
+    const toggleTheme = () => {
+        setTheme((prev) => {
+            const next: Theme = prev === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem('botchain-theme', next);
+            } catch (error) {
+                console.warn('Could not save theme to localStorage', error);
+            }
+            applyTheme(next);
+            return next;
+        });
+    };
+
+    return (
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    );
+}
+
+export function useTheme() {
+    return useContext(ThemeContext);
+}

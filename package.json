@@ -1,0 +1,36 @@
+{
+  "name": "stellarproof",
+  "version": "1.0.0",
+  "description": "BOT Chain Proof - Decentralized Content Verification and Provenance Platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "check:frontend": "pnpm --filter web lint",
+    "build:frontend": "pnpm --filter web build",
+    "build:contracts": "pnpm --filter @botchain-proof/contracts compile",
+    "test:contracts": "pnpm --filter @botchain-proof/contracts test"
+  },
+  "lint-staged": {
+    "frontend/**/*.{ts,tsx}": [
+      "pnpm --filter web exec eslint --fix --cache --cache-location .eslintcache"
+    ]
+  },
+  "keywords": [
+    "botchain",
+    "evm",
+    "provenance",
+    "verification",
+    "erc8004",
+    "erc4337"
+  ],
+  "author": "Tybravo",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.2",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
+  }
+}

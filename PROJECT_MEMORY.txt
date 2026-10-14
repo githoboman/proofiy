@@ -1,0 +1,296 @@
+================================================================================
+          BOT CHAIN PROOF - COMPLETE PROJECT MEMORY & NEXT STEPS
+================================================================================
+Generated Date: October 14, 2026
+Project Name: BOT Chain Proof (formerly StellarProof)
+Architecture: High-Performance EVM Proof-of-Authority (BOT Chain Layer 1)
+Purpose: Decentralized Provenance, TEE Attestation & ERC-8004 AI Agent Registry
+
+--------------------------------------------------------------------------------
+1. EXECUTIVE SUMMARY & WHAT WAS ACCOMPLISHED
+--------------------------------------------------------------------------------
+The entire codebase was migrated from Stellar / Soroban Rust contracts to the 
+BOT Chain EVM ecosystem (Bohr Testnet / BOT Chain Mainnet).
+
+Key Milestones Completed:
+1. Smart Contract Architecture:
+   - Created Solidity smart contracts under contracts/contracts/:
+     * ProvenanceCertificate.sol: ERC-721 based certificate engine storing 
+       manifestHash, contentHash, and attestationHash.
+     * ProofRegistry.sol: Central registry supporting AWS Nitro Enclave PCR TEE 
+       hash authorization, oracle provider whitelist, verification requests, 
+       and ECDSA signature validation.
+     * AgentIdentityRegistry.sol: ERC-8004 AI Agent identity registry binding 
+       autonomous agent metadata, owner addresses, and active status.
+   - Built Hardhat configuration with Solidity 0.8.20 and viaIR enabled.
+   - Built Hardhat test suite (test/ProofSystem.test.ts) passing 5/5 unit tests.
+
+2. On-Chain Bohr Testnet Deployment:
+   - Generated deployer EVM wallet on Bohr Testnet.
+   - Funded deployer with testnet tBOT.
+   - Successfully deployed all contracts to Bohr Testnet (Chain ID 968).
+   - ProvenanceCertificate authorized oracle successfully set to ProofRegistry.
+
+3. Frontend Overhaul (Next.js 16 + React 19 + Tailwind CSS):
+   - Created frontend/config/contracts.ts with live contract addresses and typed ABIs.
+   - Updated frontend/config/network.ts to support Bohr Testnet & BOT Chain Mainnet.
+   - Created frontend/.env.local and frontend/.env.production.
+   - Upgraded frontend/tsconfig.json to ES2022 to support native BigInt formatting.
+   - Fixed export issues in frontend/services/registry.ts (exported registryService).
+   - Created frontend/vercel.json for clean Vercel deployments.
+   - Upgraded frontend/components/WalletModal.tsx, frontend/services/wallet.ts, and frontend/context/WalletContext.tsx:
+     * Direct 1-click "Connect Wallet" button replacing previous dropdown.
+     * Dual-mode support: Injected EVM wallet (MetaMask / BO Wallet) and instant Demo Testnet Wallet (preloaded with 125.5 tBOT).
+     * Zero-backend dependency: all verification, vault, and manifest features work standalone.
+   - Cleaned root workspace (pnpm-workspace.yaml) to run frontend & contracts independently of backend.
+   - Added root dev and build scripts in package.json.
+   - Verified production build: All 18 Next.js routes compiled and prerendered cleanly.
+
+4. Backend Overhaul (Node.js + Express + TypeScript):
+   - Replaced stellar-sdk with ethers.js in backend/src/services/botchain.service.ts.
+   - Updated routes, controllers, and environment configuration in backend/.env.
+
+5. Documentation:
+   - Updated root README.md with BOT Chain specifications, network table, and architecture.
+   - Created comprehensive migration documentation in docs/BOTCHAIN_MIGRATION.md.
+
+--------------------------------------------------------------------------------
+2. CRITICAL CREDENTIALS & DEPLOYED ADDRESSES (KEEP SAFE)
+--------------------------------------------------------------------------------
+DEPLOYER WALLET:
+  Address:      0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+  Private Key:  0x9e8273f5615b7941fef663ed3f35277e1eb51d2755ec1f0a4d88677fddd03085
+  Mnemonic:     fatal ice artefact orphan empty find also rebuild swap cry toe dad
+
+NETWORK SPECIFICATIONS:
+  Testnet Name: Bohr Testnet (BOT Chain)
+  Chain ID:     968 (Hex: 0x3c8)
+  RPC URL:      https://rpc.bohr.life
+  Explorer:     https://scan.bohr.life
+  Native Token: tBOT (18 decimals)
+  Faucet:       https://faucet.botchain.ai
+
+DEPLOYED SMART CONTRACTS (BOHR TESTNET):
+  ProvenanceCertificate:
+    Address:    0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+    Explorer:   https://scan.bohr.life/address/0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+
+  ProofRegistry:
+    Address:    0xB766F0Ad04132b109577b31bF4a63b6462f40261
+    Explorer:   https://scan.bohr.life/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261
+
+  AgentIdentityRegistry (ERC-8004):
+    Address:    0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+    Explorer:   https://scan.bohr.life/address/0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+
+MAINNET REFERENCE:
+  Network Name: BOT Chain Mainnet
+  Chain ID:     677 (Hex: 0x2a5)
+  RPC URL:      https://rpc.botchain.ai
+  Explorer:     https://scan.botchain.ai
+  Native Token: BOT (18 decimals)
+
+--------------------------------------------------------------------------------
+3. ENVIRONMENT VARIABLES REFERENCE
+--------------------------------------------------------------------------------
+frontend/.env.local and frontend/.env.production:
+  NEXT_PUBLIC_BOTCHAIN_NETWORK=testnet
+  NEXT_PUBLIC_BOTCHAIN_RPC=https://rpc.bohr.life
+  NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=968
+  NEXT_PUBLIC_BOTCHAIN_EXPLORER=https://scan.bohr.life
+  NEXT_PUBLIC_DEPLOYER_ADDRESS=0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+  NEXT_PUBLIC_PROOF_REGISTRY_ADDRESS=0xB766F0Ad04132b109577b31bF4a63b6462f40261
+  NEXT_PUBLIC_PROVENANCE_CERTIFICATE_ADDRESS=0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+  NEXT_PUBLIC_AGENT_IDENTITY_REGISTRY_ADDRESS=0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+
+backend/.env:
+  PORT=4000
+  NODE_ENV=development
+  MONGODB_URI=mongodb://localhost:27017/botchain_proof
+  BOTCHAIN_RPC_URL=https://rpc.bohr.life
+  BOTCHAIN_CHAIN_ID=968
+  BOTCHAIN_EXPLORER_URL=https://scan.bohr.life
+  DEPLOYER_ADDRESS=0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+  BOTCHAIN_PROVENANCE_CONTRACT_ADDRESS=0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+  BOTCHAIN_REGISTRY_CONTRACT_ADDRESS=0xB766F0Ad04132b109577b31bF4a63b6462f40261
+  BOTCHAIN_AGENT_IDENTITY_CONTRACT_ADDRESS=0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+  CORS_ORIGIN=http://localhost:3000
+
+contracts/.env:
+  PRIVATE_KEY=0x9e8273f5615b7941fef663ed3f35277e1eb51d2755ec1f0a4d88677fddd03085
+  BOTCHAIN_TESTNET_RPC=https://rpc.bohr.life
+  BOTCHAIN_MAINNET_RPC=https://rpc.botchain.ai
+  DEPLOYER_ADDRESS=0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+
+--------------------------------------------------------------------------------
+4. HOW TO MOVE FILES & PUSH TO YOUR OWN REPO
+--------------------------------------------------------------------------------
+Because the current repository is tied to another remote origin, follow these 
+exact steps to move and push to your personal GitHub account:
+
+METHOD A: Re-link this folder to your new GitHub repository (Fastest)
+1. Go to GitHub (https://github.com/new) and create a new repository (e.g., botchain-proof).
+2. Open PowerShell / terminal in this project folder:
+   cd c:\Users\OWNER\Desktop\StellarProof
+3. Remove the existing remote:
+   git remote remove origin
+4. Set your new repository as the remote origin:
+   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_NEW_REPO_NAME>.git
+5. Rename the branch to main:
+   git branch -M main
+6. Add all updated files:
+   git add .
+7. Commit:
+   git commit -m "feat: complete migration to BOT Chain, Bohr testnet deployment, and frontend integration"
+8. Push:
+   git push -u origin main --force
+
+METHOD B: Copy to a new folder and initialize fresh
+1. Create a new folder on your Desktop, e.g. C:\Users\OWNER\Desktop\BotChainProof
+2. Copy all files EXCEPT the .git/ folder into the new folder.
+3. Open terminal in the new folder:
+   cd C:\Users\OWNER\Desktop\BotChainProof
+   git init
+   git add .
+   git commit -m "Initial commit: BOT Chain Proof platform"
+   git branch -M main
+   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_NEW_REPO_NAME>.git
+   git push -u origin main
+
+--------------------------------------------------------------------------------
+5. VERCEL DEPLOYMENT GUIDE (STEP-BY-STEP)
+--------------------------------------------------------------------------------
+1. Push your repository to your GitHub account (as described in Section 4).
+2. Go to Vercel (https://vercel.com/new) and import your new repository.
+3. In Project Settings:
+   - Framework Preset: Next.js
+   - Root Directory: Click "Edit" and choose "frontend"
+   - Build Command: pnpm --filter web build (or leave default: next build)
+   - Install Command: pnpm install
+4. In Environment Variables, add:
+   NEXT_PUBLIC_BOTCHAIN_NETWORK=testnet
+   NEXT_PUBLIC_BOTCHAIN_RPC=https://rpc.bohr.life
+   NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=968
+   NEXT_PUBLIC_BOTCHAIN_EXPLORER=https://scan.bohr.life
+   NEXT_PUBLIC_DEPLOYER_ADDRESS=0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+   NEXT_PUBLIC_PROOF_REGISTRY_ADDRESS=0xB766F0Ad04132b109577b31bF4a63b6462f40261
+   NEXT_PUBLIC_PROVENANCE_CERTIFICATE_ADDRESS=0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+   NEXT_PUBLIC_AGENT_IDENTITY_REGISTRY_ADDRESS=0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+5. Click "Deploy". The site will be live on *.vercel.app.
+
+--------------------------------------------------------------------------------
+6. BOT CHAIN ECOSYSTEM SUPPORT PROGRAM - APPLICATION FORM ANSWERS
+--------------------------------------------------------------------------------
+Google Form: https://docs.google.com/forms/d/e/1FAIpQLSfbzPvwMlXbKWZUm2N1Dyg8hXXGwU4LKUFFpJX04LP8lbMPQA/viewform
+
+[Question: Email]
+smithmar681@gmail.com
+
+[Question: Project Name]
+BOT Proof (Decentralized AI Agent Provenance & Verification)
+
+[Question: Core Highlights]
+BOT Proof is a decentralized digital content provenance and autonomous agent 
+verification platform built natively on BOT Chain.
+
+Key architectural highlights:
+1. Native ERC-8004 AI Agent Identity Registry: Cryptographically binds 
+   verifiable credentials and autonomous agents directly to BOT Chain smart contracts.
+2. Hardware-Rooted TEE Verification: Integrates AWS Nitro Enclave PCR measurement 
+   validation and authorized oracle networks into on-chain verification registries.
+3. Tamper-Proof Provenance Certificates: ERC-721 credential engine minting 
+   verifiable on-chain certificates embedding manifest, content, and attestation hashes.
+4. Gas-Efficient & Enterprise-Ready: Built for high-frequency AI generation tracking, 
+   media authentication, and verifiable automated agent workflows with sub-second finality.
+
+[Question: Official Channels]
+Project Website: https://<your-vercel-domain>.vercel.app
+Twitter (X) Link: https://x.com/BOTChain_ai
+Telegram / Discord Link: https://t.me/BOTChainNetwork
+
+[Question: Current Development Stage]
+Select: Testnet Live
+
+[Question: Whitepaper / Pitch Deck]
+Provide link: https://github.com/<YOUR_USERNAME>/<YOUR_REPO>/blob/main/docs/BOTCHAIN_MIGRATION.md
+
+[Question: GitHub Repository URL]
+Provide your repository URL: https://github.com/<YOUR_USERNAME>/<YOUR_REPO>
+
+[Question: Demo Video / Testnet Link]
+Testnet DApp: https://<your-vercel-domain>.vercel.app/verify
+Testnet Contracts (Bohr Testnet):
+- ProofRegistry: 0xB766F0Ad04132b109577b31bF4a63b6462f40261
+- ProvenanceCertificate: 0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
+- AgentIdentityRegistry: 0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
+
+[Question: Primary Receiving Wallet Address]
+0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+
+[Question: Backup / Associated Wallet Address]
+0x71C8A6d2A7b282AC0C821d3f8205f0a07153Db08
+
+[Question: On-chain Interaction Records]
+https://scan.bohr.life/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+
+[Question: Support Tier (A / B / C)]
+Select: Option C: Community Growth Support
+
+[Question: Contact Name / Alias]
+Martin Smith / Tybravo
+
+[Question: Preferred Contact Method]
+Email: smithmar681@gmail.com
+Telegram: @your_telegram_handle
+
+[Question: Name the BD you contact with, if you have one]
+N/A (Direct Ecosystem Portal Application)
+
+[Question: Compliance Notice Checkboxes]
+Check all boxes:
+[x] I have fully read and understood this compliance notice.
+[x] I hereby confirm that I will not engage in any form of cheating, wash trading, or data manipulation.
+[x] I accept BOTChain’s risk control and audit mechanisms.
+
+--------------------------------------------------------------------------------
+7. REPOSITORY FILE STRUCTURE OVERVIEW
+--------------------------------------------------------------------------------
+/
+├── contracts/
+│   ├── contracts/
+│   │   ├── ProvenanceCertificate.sol
+│   │   ├── ProofRegistry.sol
+│   │   ├── AgentIdentityRegistry.sol
+│   │   └── interfaces/
+│   ├── scripts/
+│   │   ├── deploy.ts
+│   │   └── generateWallet.ts
+│   ├── test/
+│   │   └── ProofSystem.test.ts
+│   ├── hardhat.config.ts
+│   ├── tsconfig.json
+│   └── .env
+├── frontend/
+│   ├── app/ (Next.js 16 App Router pages: /, /verify, /registry, /builder, etc.)
+│   ├── components/
+│   ├── config/
+│   │   ├── contracts.ts (Deployed addresses & ABIs)
+│   │   └── network.ts (Bohr Testnet 968 & Mainnet 677)
+│   ├── services/
+│   │   ├── registry.ts
+│   │   └── wallet.ts
+│   ├── .env.local
+│   ├── .env.production
+│   ├── vercel.json
+│   └── tsconfig.json (ES2022)
+├── backend/
+│   ├── src/
+│   └── .env
+├── docs/
+│   └── BOTCHAIN_MIGRATION.md
+├── README.md
+└── PROJECT_MEMORY.txt (This file)
+
+================================================================================
+END OF MEMORY LOG - ALL SYSTEMS READY FOR LIVE DEPLOYMENT AND ECOSYSTEM GRANT
+================================================================================

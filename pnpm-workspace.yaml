@@ -1,0 +1,10 @@
+packages:
+  - "frontend"
+  - "contracts"
+  # - "backend" # Temporarily omitted; will work on backend later
+
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+  - keccak
+  - secp256k1

@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+
+# Build Outputs
+dist/
+dist-ssr/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# Rust and Soroban compiled artifacts
+target/
+**/target/
+**/target
+**/test_snapshots/
+
+# Hardhat & Contracts
+contracts/cache/
+contracts/artifacts/
+contracts/typechain-types/
+**/cache/
+**/artifacts/
+
+# Environment variables
+.env
+.env*.local
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vercel & IDE
+.vercel/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Monorepo configs
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
