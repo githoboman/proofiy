@@ -212,13 +212,13 @@ Telegram / Discord Link: https://t.me/BOTChainNetwork
 Select: Testnet Live
 
 [Question: Whitepaper / Pitch Deck]
-Provide link: https://github.com/<YOUR_USERNAME>/<YOUR_REPO>/blob/main/docs/BOTCHAIN_MIGRATION.md
+Provide link: https://github.com/githoboman/proofiy/blob/main/docs/WHITEPAPER.md (or https://proofiy.vercel.app/whitepaper)
 
 [Question: GitHub Repository URL]
-Provide your repository URL: https://github.com/<YOUR_USERNAME>/<YOUR_REPO>
+Provide your repository URL: https://github.com/githoboman/proofiy
 
 [Question: Demo Video / Testnet Link]
-Testnet DApp: https://<your-vercel-domain>.vercel.app/verify
+Testnet DApp: https://proofiy.vercel.app/verify
 Testnet Contracts (Bohr Testnet):
 - ProofRegistry: 0xB766F0Ad04132b109577b31bF4a63b6462f40261
 - ProvenanceCertificate: 0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B
@@ -231,7 +231,14 @@ Testnet Contracts (Bohr Testnet):
 0x71C8A6d2A7b282AC0C821d3f8205f0a07153Db08
 
 [Question: On-chain Interaction Records]
-https://scan.bohr.life/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+Explorer Address: https://scan.bohr.life/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9
+Live 6 On-Chain Transactions:
+1. Authorize AWS Nitro Enclave PCR0 Hash: https://scan.bohr.life/tx/0x9482db7b2f7572dad3d3573c571191641e4abe055a7b3ba7215823770d61100d
+2. Whitelist Authorized Oracle Node Provider: https://scan.bohr.life/tx/0xbaa9940ff513f8bb9b3a950ce42d2e398bc4b90669633b9cd372b7bcc5f5673e
+3. Register ERC-8004 Autonomous AI Agent: https://scan.bohr.life/tx/0x602ee2cbdc5ad01f514944e356e0a3b78baced589cb6c300af52c94d579f3979
+4. Create Content Verification Request: https://scan.bohr.life/tx/0xdda31affbaa6db08c14cbfee2c9da1d6909e9653cf53a3f257a7a47d0c594db0
+5. Mint ERC-721 Provenance Certificate: https://scan.bohr.life/tx/0x8fe6826681fa31510650e612bba5f3ed4cf7fe8938ed2f1da953be94a6a5075b
+6. Bind Certificate to ERC-8004 Agent Identity: https://scan.bohr.life/tx/0x1f0157bfdf6498d5310bf50549d74301cd927b539cf348a2afa6e238fbdf4a61
 
 [Question: Support Tier (A / B / C)]
 Select: Option C: Community Growth Support

@@ -1,10 +1,29 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-import * as dotenv from "dotenv";
+import * as fs from "fs";
+import * as path from "path";
 
-dotenv.config();
+// Built-in .env loader
+try {
+  const envPath = path.resolve(__dirname, ".env");
+  if (fs.existsSync(envPath)) {
+    const lines = fs.readFileSync(envPath, "utf-8").split("\n");
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const idx = trimmed.indexOf("=");
+      if (idx !== -1) {
+        const key = trimmed.slice(0, idx).trim();
+        const val = trimmed.slice(idx + 1).trim();
+        if (!process.env[key]) {
+          process.env[key] = val;
+        }
+      }
+    }
+  }
+} catch (e) {}
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x0000000000000000000000000000000000000000000000000000000000000001";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x9e8273f5615b7941fef663ed3f35277e1eb51d2755ec1f0a4d88677fddd03085";
 
 const config: HardhatUserConfig = {
   solidity: {

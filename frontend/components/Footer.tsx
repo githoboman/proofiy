@@ -112,7 +112,7 @@ export default function Footer() {
               title: "RESOURCES",
               links: [
                 "Proof Registry",
-                "Brand Assets",
+                "Protocol Whitepaper",
                 "Ecosystem Fund",
                 "Developer Blog",
               ],
@@ -140,7 +140,11 @@ export default function Footer() {
                       ? "/report-issue"
                       : link === "Contact Us"
                         ? "/contact"
-                        : "#";
+                        : link === "Protocol Whitepaper"
+                          ? "/whitepaper"
+                          : link === "Proof Registry"
+                            ? "/registry"
+                            : "#";
                   return (
                     <a
                       key={link}

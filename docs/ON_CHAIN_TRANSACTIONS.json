@@ -1,0 +1,44 @@
+[
+  {
+    "step": "1. Authorize AWS Nitro Enclave PCR0 Hash",
+    "txHash": "0x9482db7b2f7572dad3d3573c571191641e4abe055a7b3ba7215823770d61100d",
+    "blockNumber": 26916498,
+    "summary": "Registered TEE measurement hash in ProofRegistry (AWS Nitro Enclave v2.4 (Build-4929))",
+    "explorerUrl": "https://scan.bohr.life/tx/0x9482db7b2f7572dad3d3573c571191641e4abe055a7b3ba7215823770d61100d"
+  },
+  {
+    "step": "2. Whitelist Authorized Oracle Node Provider",
+    "txHash": "0xbaa9940ff513f8bb9b3a950ce42d2e398bc4b90669633b9cd372b7bcc5f5673e",
+    "blockNumber": 26916502,
+    "summary": "Authorized oracle node 0x1eEFd10C20d92Bbe0b2c85ad64c0CDE7f85d06c5 in ProofRegistry",
+    "explorerUrl": "https://scan.bohr.life/tx/0xbaa9940ff513f8bb9b3a950ce42d2e398bc4b90669633b9cd372b7bcc5f5673e"
+  },
+  {
+    "step": "3. Register ERC-8004 Autonomous AI Agent",
+    "txHash": "0x602ee2cbdc5ad01f514944e356e0a3b78baced589cb6c300af52c94d579f3979",
+    "blockNumber": 26916507,
+    "summary": "Registered autonomous agent \"proofiy-sentinel-854929\" (ID: #1) bound to wallet 0x30Deb35958F2Af091a1e3D9a214Df9f6dE0C4B0b",
+    "explorerUrl": "https://scan.bohr.life/tx/0x602ee2cbdc5ad01f514944e356e0a3b78baced589cb6c300af52c94d579f3979"
+  },
+  {
+    "step": "4. Create Content Verification Request",
+    "txHash": "0xdda31affbaa6db08c14cbfee2c9da1d6909e9653cf53a3f257a7a47d0c594db0",
+    "blockNumber": 26916511,
+    "summary": "Logged verification request #1 for content digest 0x1c2f21e04c22111a...",
+    "explorerUrl": "https://scan.bohr.life/tx/0xdda31affbaa6db08c14cbfee2c9da1d6909e9653cf53a3f257a7a47d0c594db0"
+  },
+  {
+    "step": "5. Mint ERC-721 Provenance Certificate",
+    "txHash": "0x8fe6826681fa31510650e612bba5f3ed4cf7fe8938ed2f1da953be94a6a5075b",
+    "blockNumber": 26916516,
+    "summary": "Minted verified provenance certificate #1 (BOTCERT NFT) with TEE attestation digest",
+    "explorerUrl": "https://scan.bohr.life/tx/0x8fe6826681fa31510650e612bba5f3ed4cf7fe8938ed2f1da953be94a6a5075b"
+  },
+  {
+    "step": "6. Bind Certificate to AI Agent Identity",
+    "txHash": "0x1f0157bfdf6498d5310bf50549d74301cd927b539cf348a2afa6e238fbdf4a61",
+    "blockNumber": 26916521,
+    "summary": "Bound certificate #1 to ERC-8004 Agent #1 on-chain",
+    "explorerUrl": "https://scan.bohr.life/tx/0x1f0157bfdf6498d5310bf50549d74301cd927b539cf348a2afa6e238fbdf4a61"
+  }
+]

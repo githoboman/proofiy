@@ -26,10 +26,13 @@ const NAV_LINKS = [
     ],
   },
   { href: "#pricing", label: "Pricing" },
+  { href: "/whitepaper", label: "Whitepaper" },
   {
     label: "Demo",
     children: [
       { href: "/dashboard", label: "Verification Dashboard" },
+      { href: "/registry", label: "Certificate Registry" },
+      { href: "/whitepaper", label: "Protocol Whitepaper" },
     ],
   },
 ] as const;
@@ -135,7 +138,12 @@ export default function Header() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                    onClick={(e) => {
+                      if (item.href.startsWith("#")) {
+                        e.preventDefault();
+                        scrollToSection(item.href);
+                      }
+                    }}
                     className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-darkblue ${activeSection === item.href
                         ? "text-gray-900 dark:text-white"
                         : "text-gray-600 dark:text-white/80 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white"
@@ -253,7 +261,14 @@ export default function Header() {
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                        onClick={(e) => {
+                          if (item.href.startsWith("#")) {
+                            e.preventDefault();
+                            handleNavClick(item.href);
+                          } else {
+                            setMobileOpen(false);
+                          }
+                        }}
                         className="block rounded-lg px-4 py-3 text-base font-medium text-gray-800 dark:text-white/90 hover:bg-gray-100 dark:hover:bg-white/10 touch-manipulation transition-colors duration-300"
                       >
                         {item.label}

@@ -140,6 +140,38 @@ StellarProof/
     └── registry_events.md      # Solidity event topic schemas
 ```
 
+## 📄 Protocol Whitepaper
+The detailed scientific and architectural specification of the Proofiy Protocol is published in:
+* **Online Reader**: [proofiy.vercel.app/whitepaper](https://proofiy.vercel.app/whitepaper)
+* **Whitepaper Source**: [`docs/WHITEPAPER.md`](./docs/WHITEPAPER.md)
+
+Key whitepaper topics include:
+* Confidential TEE Hardware Attestation (AWS Nitro Enclaves PCR0/1/2 validation)
+* ERC-8004 AI Agent Identity Registry & Reputation Binding
+* Formal Cryptographic Hashing and Non-Fungible Provenance Certificates (`BOTCERT`)
+* BOT Chain PoSA Consensus, Gas Rebate Mechanics & Sybil Defense Models
+
+---
+
+## ⛓️ Live On-Chain Verification (6 Verified Bohr Testnet Transactions)
+
+Proofiy has executed and verified the complete end-to-end provenance lifecycle directly on **Bohr Testnet** (Chain ID `968`).
+
+* **Deployer Account**: [`0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9`](https://scan.bohr.life/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9)
+* **ProvenanceCertificate**: [`0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B`](https://scan.bohr.life/address/0x1f572428708e3eEB0e56277972bdFFe010Cb3A9B)
+* **ProofRegistry**: [`0xB766F0Ad04132b109577b31bF4a63b6462f40261`](https://scan.bohr.life/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261)
+* **AgentIdentityRegistry (ERC-8004)**: [`0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773`](https://scan.bohr.life/address/0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773)
+
+### On-Chain Transaction Records:
+| # | Action / Operation | Block | Transaction Hash | Gas Used | Status |
+|---|--------------------|-------|------------------|----------|--------|
+| **1** | **Authorize AWS Nitro Enclave PCR0 Hash** | `26916498` | [`0x9482db7b...1100d`](https://scan.bohr.life/tx/0x9482db7b2f7572dad3d3573c571191641e4abe055a7b3ba7215823770d61100d) | 116,910 | **Confirmed** |
+| **2** | **Whitelist Authorized Oracle Node Provider** | `26916502` | [`0xbaa9940f...5673e`](https://scan.bohr.life/tx/0xbaa9940ff513f8bb9b3a950ce42d2e398bc4b90669633b9cd372b7bcc5f5673e) | 47,547 | **Confirmed** |
+| **3** | **Register ERC-8004 Autonomous AI Agent** | `26916507` | [`0x602ee2cb...f3979`](https://scan.bohr.life/tx/0x602ee2cbdc5ad01f514944e356e0a3b78baced589cb6c300af52c94d579f3979) | 272,126 | **Confirmed** |
+| **4** | **Create Content Verification Request** | `26916511` | [`0xdda31aff...94db0`](https://scan.bohr.life/tx/0xdda31affbaa6db08c14cbfee2c9da1d6909e9653cf53a3f257a7a47d0c594db0) | 140,319 | **Confirmed** |
+| **5** | **Mint ERC-721 Provenance Certificate** (`BOTCERT #1`) | `26916516` | [`0x8fe68266...5075b`](https://scan.bohr.life/tx/0x8fe6826681fa31510650e612bba5f3ed4cf7fe8938ed2f1da953be94a6a5075b) | 281,194 | **Confirmed** |
+| **6** | **Bind Certificate #1 to ERC-8004 Agent #1** | `26916521` | [`0x1f0157bf...df4a61`](https://scan.bohr.life/tx/0x1f0157bfdf6498d5310bf50549d74301cd927b539cf348a2afa6e238fbdf4a61) | 71,853 | **Confirmed** |
+
 ---
 
 ## ⚡ Getting Started
