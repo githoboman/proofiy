@@ -11,7 +11,9 @@
     "check:frontend": "pnpm --filter web lint",
     "build:frontend": "pnpm --filter web build",
     "build:contracts": "pnpm --filter @botchain-proof/contracts compile",
-    "test:contracts": "pnpm --filter @botchain-proof/contracts test"
+    "test:contracts": "pnpm --filter @botchain-proof/contracts test",
+    "deploy:mainnet": "pnpm --filter @botchain-proof/contracts deploy:mainnet:direct",
+    "check:mainnet": "pnpm --filter @botchain-proof/contracts check:balance:mainnet"
   },
   "lint-staged": {
     "frontend/**/*.{ts,tsx}": [

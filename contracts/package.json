@@ -6,7 +6,9 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "deploy:testnet": "hardhat run scripts/deploy.ts --network bohrTestnet",
-    "deploy:mainnet": "hardhat run scripts/deploy.ts --network botchainMainnet"
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network botchainMainnet",
+    "deploy:mainnet:direct": "node scripts/deployMainnet.cjs",
+    "check:balance:mainnet": "node scripts/checkMainnetBalance.cjs"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
