@@ -229,8 +229,16 @@ Autonomous agents can bind minted provenance certificates to their on-chain iden
 
 ---
 
-## 8. Live Bohr Testnet Verification & Transaction Records
+## 8. Live BOT Chain Mainnet & Bohr Testnet Deployments
 
+### 8.1 BOT Chain Mainnet Deployment (Chain ID `677`)
+Proofiy is natively deployed and operational on **BOT Chain Mainnet**:
+* **Deployer Address:** [`0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9`](https://scan.botchain.ai/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9)
+* **ProvenanceCertificate (ERC-721):** [`0xB766F0Ad04132b109577b31bF4a63b6462f40261`](https://scan.botchain.ai/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261)
+* **ProofRegistry (Core State Machine):** [`0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2`](https://scan.botchain.ai/address/0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2)
+* **AgentIdentityRegistry (ERC-8004):** [`0x1aa5d0286421Cb082440793cc9855e4922310293`](https://scan.botchain.ai/address/0x1aa5d0286421Cb082440793cc9855e4922310293)
+
+### 8.2 Bohr Testnet Verification & Transaction Records (Chain ID `968`)
 Proofiy is fully operational on **Bohr Testnet** (BOT Chain Layer 1, Chain ID `968`). 
 
 All core smart contracts are deployed and have completed verification:
@@ -239,7 +247,7 @@ All core smart contracts are deployed and have completed verification:
 * **ProofRegistry:** [`0xB766F0Ad04132b109577b31bF4a63b6462f40261`](https://scan.bohr.life/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261)
 * **AgentIdentityRegistry (ERC-8004):** [`0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773`](https://scan.bohr.life/address/0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773)
 
-### 8.1 Empirical On-Chain Interaction Audit (6 Verified Transactions)
+### 8.3 Empirical On-Chain Interaction Audit (6 Verified Transactions)
 The following 6 transactions demonstrate the end-to-end operational lifecycle executed directly on Bohr Testnet:
 
 | # | Action / Operation | Block | Transaction Hash | Gas Used | Status |

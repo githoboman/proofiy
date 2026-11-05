@@ -330,11 +330,54 @@ export default function WhitepaperPage() {
           <div className="space-y-6">
             <div className="border border-slate-800 bg-slate-900/60 rounded-2xl p-6 shadow-xl sticky top-24">
               <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                <Database className="w-4 h-4 text-emerald-400" />
+                BOT Chain Mainnet Contracts
+              </h4>
+
+              <div className="space-y-3 text-xs font-mono mb-6">
+                <div>
+                  <div className="text-slate-400 mb-1">ProvenanceCertificate (ERC-721):</div>
+                  <a
+                    href="https://scan.botchain.ai/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 break-all block bg-slate-950 p-2 rounded border border-slate-800"
+                  >
+                    0xB766F0Ad04132b109577b31bF4a63b6462f40261
+                  </a>
+                </div>
+
+                <div>
+                  <div className="text-slate-400 mb-1">ProofRegistry:</div>
+                  <a
+                    href="https://scan.botchain.ai/address/0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 break-all block bg-slate-950 p-2 rounded border border-slate-800"
+                  >
+                    0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2
+                  </a>
+                </div>
+
+                <div>
+                  <div className="text-slate-400 mb-1">AgentIdentityRegistry (ERC-8004):</div>
+                  <a
+                    href="https://scan.botchain.ai/address/0x1aa5d0286421Cb082440793cc9855e4922310293"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 break-all block bg-slate-950 p-2 rounded border border-slate-800"
+                  >
+                    0x1aa5d0286421Cb082440793cc9855e4922310293
+                  </a>
+                </div>
+              </div>
+
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2 pt-4 border-t border-slate-800">
                 <Database className="w-4 h-4 text-blue-400" />
                 Bohr Testnet Contracts
               </h4>
 
-              <div className="space-y-4 text-xs font-mono">
+              <div className="space-y-3 text-xs font-mono">
                 <div>
                   <div className="text-slate-400 mb-1">ProvenanceCertificate:</div>
                   <a
@@ -374,7 +417,7 @@ export default function WhitepaperPage() {
                 <div>
                   <div className="text-slate-400 mb-1">Deployer Account:</div>
                   <a
-                    href="https://scan.bohr.life/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9"
+                    href="https://scan.botchain.ai/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-400 hover:text-emerald-300 break-all block bg-slate-950 p-2 rounded border border-slate-800"

@@ -83,12 +83,28 @@ DEPLOYED SMART CONTRACTS (BOHR TESTNET):
     Address:    0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
     Explorer:   https://scan.bohr.life/address/0x6f3922EF9BcfEB1fBb3c157b1F8947b70c59d773
 
-MAINNET REFERENCE:
+MAINNET REFERENCE & DEPLOYED CONTRACTS (BOT CHAIN MAINNET):
   Network Name: BOT Chain Mainnet
   Chain ID:     677 (Hex: 0x2a5)
   RPC URL:      https://rpc.botchain.ai
   Explorer:     https://scan.botchain.ai
   Native Token: BOT (18 decimals)
+
+  Deployed Contracts (Mainnet):
+    ProvenanceCertificate:
+      Address:    0xB766F0Ad04132b109577b31bF4a63b6462f40261
+      Explorer:   https://scan.botchain.ai/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261
+      Tx Hash:    0x7094a89dff02999b6a28caf27c2c14bb96707870b74983eceb7534b1941531dc
+
+    ProofRegistry:
+      Address:    0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2
+      Explorer:   https://scan.botchain.ai/address/0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2
+      Tx Hash:    0x5b36695f7788d6959597f59e774e4f6dddb1976e98795c06094205bcab3758d6
+
+    AgentIdentityRegistry (ERC-8004):
+      Address:    0x1aa5d0286421Cb082440793cc9855e4922310293
+      Explorer:   https://scan.botchain.ai/address/0x1aa5d0286421Cb082440793cc9855e4922310293
+      Tx Hash:    0xec38a52c1ecf64581b07e43693d1953cd9daeba3a14bf48199b9dc7c764172b5
 
 --------------------------------------------------------------------------------
 3. ENVIRONMENT VARIABLES REFERENCE

@@ -38,9 +38,13 @@ async function main() {
     fs.readFileSync(path.join(__dirname, "../artifacts/contracts/AgentIdentityRegistry.sol/AgentIdentityRegistry.json"), "utf8")
   );
 
+  const feeData = await provider.getFeeData();
+  const gasPrice = feeData.gasPrice && feeData.gasPrice >= 20000000000n ? feeData.gasPrice : 20000000000n;
+  console.log("Using gasPrice:", ethers.formatUnits(gasPrice, "gwei"), "gwei");
+
   console.log("\n--- [1/4] Deploying ProvenanceCertificate (ERC-721) ---");
   const ProvenanceFactory = new ethers.ContractFactory(provenanceArtifact.abi, provenanceArtifact.bytecode, wallet);
-  const provenanceContract = await ProvenanceFactory.deploy(ethers.ZeroAddress);
+  const provenanceContract = await ProvenanceFactory.deploy(ethers.ZeroAddress, { gasPrice });
   console.log(`> Deployment Tx Broadcasted: ${provenanceContract.deploymentTransaction().hash}`);
   await provenanceContract.waitForDeployment();
   const provenanceAddress = await provenanceContract.getAddress();
@@ -48,21 +52,21 @@ async function main() {
 
   console.log("\n--- [2/4] Deploying ProofRegistry ---");
   const RegistryFactory = new ethers.ContractFactory(proofRegistryArtifact.abi, proofRegistryArtifact.bytecode, wallet);
-  const registryContract = await RegistryFactory.deploy(provenanceAddress);
+  const registryContract = await RegistryFactory.deploy(provenanceAddress, { gasPrice });
   console.log(`> Deployment Tx Broadcasted: ${registryContract.deploymentTransaction().hash}`);
   await registryContract.waitForDeployment();
   const registryAddress = await registryContract.getAddress();
   console.log(`✓ ProofRegistry deployed to: ${registryAddress}`);
 
   console.log("\n--- [3/4] Linking ProofRegistry as Authorized Oracle ---");
-  const linkTx = await provenanceContract.setAuthorizedOracle(registryAddress);
+  const linkTx = await provenanceContract.setAuthorizedOracle(registryAddress, { gasPrice });
   console.log(`> Link Oracle Tx Broadcasted: ${linkTx.hash}`);
   const linkReceipt = await linkTx.wait();
   console.log(`✓ Oracle authorization linked in block ${linkReceipt.blockNumber}!`);
 
   console.log("\n--- [4/4] Deploying AgentIdentityRegistry (ERC-8004) ---");
   const AgentFactory = new ethers.ContractFactory(agentRegistryArtifact.abi, agentRegistryArtifact.bytecode, wallet);
-  const agentContract = await AgentFactory.deploy();
+  const agentContract = await AgentFactory.deploy({ gasPrice });
   console.log(`> Deployment Tx Broadcasted: ${agentContract.deploymentTransaction().hash}`);
   await agentContract.waitForDeployment();
   const agentRegistryAddress = await agentContract.getAddress();

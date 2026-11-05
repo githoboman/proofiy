@@ -153,6 +153,16 @@ Key whitepaper topics include:
 
 ---
 
+## 🌐 Deployed Smart Contracts (BOT Chain Mainnet — Chain ID 677)
+
+Proofiy is natively deployed and live on **BOT Chain Mainnet**:
+* **Deployer Account**: [`0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9`](https://scan.botchain.ai/address/0xA4A42E4873d57Dd91fA9D41D5956EA51E4D69DE9)
+* **ProvenanceCertificate (ERC-721)**: [`0xB766F0Ad04132b109577b31bF4a63b6462f40261`](https://scan.botchain.ai/address/0xB766F0Ad04132b109577b31bF4a63b6462f40261)
+* **ProofRegistry (State Machine)**: [`0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2`](https://scan.botchain.ai/address/0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2)
+* **AgentIdentityRegistry (ERC-8004)**: [`0x1aa5d0286421Cb082440793cc9855e4922310293`](https://scan.botchain.ai/address/0x1aa5d0286421Cb082440793cc9855e4922310293)
+
+---
+
 ## ⛓️ Live On-Chain Verification (6 Verified Bohr Testnet Transactions)
 
 Proofiy has executed and verified the complete end-to-end provenance lifecycle directly on **Bohr Testnet** (Chain ID `968`).

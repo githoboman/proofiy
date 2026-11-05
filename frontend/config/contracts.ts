@@ -30,13 +30,13 @@ export const CONTRACT_ADDRESSES: Record<"mainnet" | "testnet", DeployedContracts
   mainnet: {
     proofRegistry:
       process.env.NEXT_PUBLIC_PROOF_REGISTRY_ADDRESS ||
-      "0x5f5802fA78d5eE2A3B4fD67F49CD502430C3E88C",
+      "0xb86aE84dc946F8431c2A2907d2a3Efa848A0b5c2",
     provenanceCertificate:
       process.env.NEXT_PUBLIC_PROVENANCE_CERTIFICATE_ADDRESS ||
-      "0xd9DC4F46d9da603A2A077A7190BAa85f4e2f05fe",
+      "0xB766F0Ad04132b109577b31bF4a63b6462f40261",
     agentIdentityRegistry:
       process.env.NEXT_PUBLIC_AGENT_IDENTITY_REGISTRY_ADDRESS ||
-      "0xb43edfb9c7609cf645e932b2ff20f26f0d4488de",
+      "0x1aa5d0286421Cb082440793cc9855e4922310293",
   },
 };
 
